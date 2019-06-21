@@ -162,6 +162,11 @@ static MouseShortcut mshortcuts[] = {
 	{ Button5,              XK_ANY_MOD,     "\005" },
 };
 
+/* External Pipe */
+static char *copytextcmd[] = {"/bin/sh", "-c",
+			      "/home/peterzky/.bin/externalpipe.sh", "externalpipe", NULL};
+
+
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
@@ -182,6 +187,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  5} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  5} },
+	{ ControlMask,          XK_Tab,         externalpipe,   {.v = copytextcmd}},
 };
 
 /*
